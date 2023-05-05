@@ -1,11 +1,24 @@
 package tacos.domain;
 
+import java.io.Serializable;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
-public class Ingredient {
+@Entity
+@AllArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+public class Ingredient implements Serializable {
     
-    private String id;
+    private static final long serialVersionUID = 1L;
+
+    @Id
+	private String id;
 
     private String name;
 
