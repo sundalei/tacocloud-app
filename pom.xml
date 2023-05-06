@@ -16,6 +16,7 @@
     <module>tacocloud-domain</module>
     <module>tacocloud-api</module>
     <module>tacocloud-data</module>
+    <module>tacocloud-web</module>
   </modules>
 
   <properties>
