@@ -14,11 +14,12 @@ import org.springframework.web.bind.support.SessionStatus;
 import tacos.data.OrderRepository;
 import tacos.domain.TacoOrder;
 import tacos.domain.TacoUser;
+import tacos.messaging.OrderMessagingService;
 
 @Controller
 @RequestMapping("/orders")
 @SessionAttributes("tacoOrder")
-public record OrderController(OrderRepository orderRepository, OrderProps props) {
+public record OrderController(OrderRepository orderRepository, OrderMessagingService orderMessagingService, OrderProps props) {
 
     private static final Logger LOG = LoggerFactory.getLogger(OrderController.class);
 
@@ -58,6 +59,7 @@ public record OrderController(OrderRepository orderRepository, OrderProps props)
         order.setUser(user);
 
         LOG.info("send order message to queue");
+        orderMessagingService.sendOrder(order);
         
         orderRepository.save(order);
 

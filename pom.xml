@@ -18,6 +18,7 @@
     <module>tacocloud-data</module>
     <module>tacocloud-web</module>
     <module>tacocloud-security</module>
+    <module>tacocloud-messaging</module>
   </modules>
 
   <properties>
