@@ -16,4 +16,9 @@ spring:
       
 logging:
   level:
-    tacos: debug
+    tacos: info
+    org:
+      springframework:
+        security: debug
+        web:
+          client: debug
